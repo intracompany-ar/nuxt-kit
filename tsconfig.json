@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext"]
+  },
+  "include": ["."],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "playground",
+  ]
+}
+  

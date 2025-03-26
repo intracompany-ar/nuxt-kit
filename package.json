@@ -1,35 +1,49 @@
 {
-  "name": "@intracompany/nuxt-kit",
-  "version": "1.0.0",
-  "description": "Componenetes para app en nuxt",
-  "keywords": [
-    "commons",
-    "nuxt"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/intracompany-ar/nuxt-kit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/intracompany-ar/nuxt-kit/issues"
-  },
-  "homepage": "https://github.com/intracompany-ar/nuxt-kit#readme",
-  "license": "MIT",
-  "author": "IntraCompany",
-  "type": "module",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "exports": {
-    ".": "./index.js"
-  },
-  "scripts": {
-    "test": "test",
-    "build": "echo 'Building commons_front...'"
-  },
-  "dependencies": {
-    "typescript": "^5.8.2"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@intracompany/nuxt-kit",
+	"version": "1.0.0",
+	"description": "Componenetes para app en nuxt",
+	"keywords": [
+		"commons",
+		"nuxt"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/intracompany-ar/nuxt-kit.git"
+	},
+	"bugs": {
+		"url": "https://github.com/intracompany-ar/nuxt-kit/issues"
+	},
+	"homepage": "https://github.com/intracompany-ar/nuxt-kit#readme",
+	"license": "MIT",
+	"author": "IntraCompany",
+	"type": "module",
+	"main": "./src/module.ts",
+	"exports": {
+		".": "./src/module.ts"
+	},
+	"scripts": {
+		"test": "test",
+		"build": "echo 'Building commons_front...'"
+	},
+	"dependencies": {
+		"@nuxt/kit": "^3.16.1",
+		"pinia": "^3.0.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "^2.3.2",
+		"@nuxt/eslint-config": "^1.2.0",
+		"@nuxt/module-builder": "^0.8.4",
+		"@nuxt/schema": "^3.16.1",
+		"@nuxt/test-utils": "^3.17.2",
+		"@types/node": "latest",
+		"changelogen": "^0.6.1",
+		"eslint": "^9.23.0",
+		"nuxt": "^3.16.1",
+		"typescript": "~5.8.2",
+		"vitest": "^3.0.9",
+		"vue-tsc": "^2.2.8"
+	}
 }

@@ -1,15 +1,32 @@
-import { defineNuxtModule, addPlugin, addComponentsDir, addLayout, addLayoutsDir, addServerMiddleware, addImportsDir } from '@nuxt/kit'
+import {
+	defineNuxtModule,
+	createResolver,
+	addPlugin,
+	addImportsDir,
+} from '@nuxt/kit'
 
-export default defineNuxtModule({
-    meta: {
-        name: '@intracompany/nuxt-kit',
-        configKey: 'kit',
-    },
-    setup(options, nuxt) {
-        addPlugin(resolve('./plugins/auth'))
-        addComponentsDir({ path: resolve('./components') })
-        addLayoutsDir({ path: resolve('./layouts') })
-        addImportsDir(resolve('./composables'))
-        nuxt.options.router.middleware.push('auth.global') // si querés auto middleware
-    }
+// Module options TypeScript interface definition
+export interface ModuleOptions {
+	enabled?: boolean
+	apiUrl?: string
+}
+
+export default defineNuxtModule<ModuleOptions>({
+	meta: {
+		name: '@intracompany/nuxt-kit',
+		configKey: 'nuxt-kit',
+	},
+	defaults: {},
+	setup(_options, _nuxt) {
+		const { resolve } = createResolver(import.meta.url)
+
+		// Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
+		addPlugin(resolve('./runtime/plugin'))
+		addImportsDir(resolve('./runtime/middleware'))
+		_nuxt.hook('imports:dirs', (dirs) => {
+			dirs.push(resolve('./runtime/middleware'))
+		})
+		// addComponentsDir({ path: resolve('./components') })
+		addImportsDir(resolve('./composables'))
+	},
 })
