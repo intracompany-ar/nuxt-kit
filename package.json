@@ -1,29 +1,35 @@
 {
-  "name": "nuxt-auth",
+  "name": "@intracompany/nuxt-kit",
   "version": "1.0.0",
-  "description": "Componenetes para auth en nuxt",
+  "description": "Componenetes para app en nuxt",
   "keywords": [
     "commons",
-    "nuxt",
-    "auth"
+    "nuxt"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/intracompany-ar/nuxt-auth.git"
+    "url": "git+https://github.com/intracompany-ar/nuxt-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/intracompany-ar/nuxt-auth/issues"
+    "url": "https://github.com/intracompany-ar/nuxt-kit/issues"
   },
-  "homepage": "https://github.com/intracompany-ar/nuxt-auth#readme",
+  "homepage": "https://github.com/intracompany-ar/nuxt-kit#readme",
   "license": "MIT",
   "author": "IntraCompany",
   "type": "module",
   "main": "index.js",
+  "types": "index.d.ts",
   "exports": {
     ".": "./index.js"
   },
   "scripts": {
     "test": "test",
     "build": "echo 'Building commons_front...'"
+  },
+  "dependencies": {
+    "typescript": "^5.8.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
