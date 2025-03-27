@@ -37,8 +37,7 @@ export const useAuth = defineStore('auth', () => {
 	async function logout() {
 		await useApiFetch('/logout', { method: 'POST' })
 		resetStore()
-		const config = useRuntimeConfig()
-		return navigateTo(`${config.public.authBase}/login?app_id=${config.public.appId}`)
+		return navigateTo(`${useRuntimeConfig().public.redirectAuth}`, { external: true })
 	}
 
 	function resetStore() {
