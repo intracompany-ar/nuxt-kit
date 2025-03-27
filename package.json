@@ -17,13 +17,28 @@
 	"license": "MIT",
 	"author": "IntraCompany",
 	"type": "module",
-	"main": "./src/module.ts",
 	"exports": {
-		".": "./src/module.ts"
+		".": {
+			"types": "./dist/types.d.ts",
+			"import": "./dist/module.mjs",
+			"require": "./dist/module.cjs"
+		}
 	},
+	"main": "./dist/module.cjs",
+	"types": "./dist/types.d.ts",
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"test": "test",
-		"build": "echo 'Building commons_front...'"
+		"prepack": "nuxt-module-build build",
+		"dev": "nuxi dev playground",
+		"dev:build": "nuxi build playground",
+		"dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+		"release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+		"lint": "eslint .",
+		"test": "vitest run",
+		"test:watch": "vitest watch",
+		"test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
 	},
 	"dependencies": {
 		"@nuxt/kit": "^3.16.1",
@@ -41,9 +56,11 @@
 		"@types/node": "latest",
 		"changelogen": "^0.6.1",
 		"eslint": "^9.23.0",
-		"nuxt": "^3.16.1",
 		"typescript": "~5.8.2",
 		"vitest": "^3.0.9",
 		"vue-tsc": "^2.2.8"
+	},
+	"peerDependencies": {
+		"nuxt": "^3.16.1"
 	}
 }

@@ -1,15 +1,19 @@
 {
-  "private": true,
-  "name": "nuxt-kit-intra-playground",
-  "type": "module",
-  "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate"
-  },
-  "dependencies": {
-    "@pinia/nuxt": "^0.10.1",
-    "nuxt": "^3.16.1",
-    "pinia": "^3.0.1"
-  }
+	"private": true,
+	"name": "nuxt-kit-intra-playground",
+	"type": "module",
+	"scripts": {
+		"dev": "nuxi dev",
+		"build": "nuxi build",
+		"generate": "nuxi generate"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@pinia/nuxt": "^0.10.1",
+		"nuxt": "^3.16.1",
+		"pinia": "^3.0.1"
+	},
+	"version": "0.0.1"
 }
