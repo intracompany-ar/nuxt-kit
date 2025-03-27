@@ -1,7 +1,7 @@
 import type { RouteLocationNormalized } from 'vue-router'
 import { defineNuxtRouteMiddleware, useRuntimeConfig, navigateTo, useAuth } from '#imports'
 
-export default defineNuxtRouteMiddleware(async (to: RouteLocationNormalized) => {
+export default defineNuxtRouteMiddleware(async (_to: RouteLocationNormalized) => {
 	// https://nuxt.com/docs/guide/directory-structure/middleware#when-middleware-runs
 	if (import.meta.server) return
 

@@ -1,1 +1,3 @@
-<template>Prueba 1</template>
+<template>
+  Prueba 1
+</template>

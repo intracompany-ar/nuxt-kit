@@ -1,7 +1,4 @@
 export default defineNuxtConfig({
-	pinia: {
-		autoImports: ['defineStore', 'storeToRefs'],
-	},
 	modules: [
 		'../src/module.ts',
 		'@pinia/nuxt',
@@ -20,4 +17,7 @@ export default defineNuxtConfig({
 	},
 	compatibilityDate: '2025-03-26',
 	nuxtKit: {},
+	pinia: {
+		autoImports: ['defineStore', 'storeToRefs'],
+	},
 })

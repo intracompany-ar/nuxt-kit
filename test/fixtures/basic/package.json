@@ -1,5 +1,10 @@
 {
-  "private": true,
-  "name": "basic",
-  "type": "module"
+	"private": true,
+	"name": "basic",
+	"type": "module",
+	"dependencies": {
+		"@pinia/nuxt": "^0.10.1",
+		"nuxt": "^3.16.1",
+		"pinia": "^3.0.1"
+	}
 }
