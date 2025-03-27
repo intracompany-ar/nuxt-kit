@@ -1,11 +1,11 @@
 import {
+	addRouteMiddleware,
 	defineNuxtModule,
 	createResolver,
 	addPlugin,
 	addImportsDir,
 } from '@nuxt/kit'
 
-// Module options TypeScript interface definition
 export interface ModuleOptions {
 	enabled?: boolean
 	apiUrl?: string
@@ -14,18 +14,20 @@ export interface ModuleOptions {
 export default defineNuxtModule<ModuleOptions>({
 	meta: {
 		name: '@intracompany/nuxt-kit',
-		configKey: 'nuxt-kit',
+		configKey: 'nuxtKit',
 	},
 	defaults: {},
 	setup(_options, _nuxt) {
 		const { resolve } = createResolver(import.meta.url)
 
-		// Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
 		addPlugin(resolve('./runtime/plugin'))
-		_nuxt.hook('imports:dirs', (dirs) => {
-			dirs.push(resolve('./runtime/middleware'))
+		addImportsDir(resolve('./runtime/composables'))
+		addImportsDir(resolve('./runtime/stores'))
+
+		addRouteMiddleware({
+			name: 'auth-global',
+			path: resolve('./runtime/middleware/auth.global'), // sin .ts
+			global: true,
 		})
-		// addComponentsDir({ path: resolve('./components') })
-		addImportsDir(resolve('./composables'))
 	},
 })
